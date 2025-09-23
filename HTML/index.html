@@ -1,22 +1,23 @@
 <!-- CS465 Lab1 HTML/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuel's Army Force</title>
-    <link rel ="stylesheet" href="CSS/styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Samuel's Army Force</title>
+        <link rel="stylesheet" href="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/CSS/styles.css">
+    </head>
 <body>
     <div class ="alart-banner">
-    <p> Official SNHU Sam's Corp Army Force Website</p>
+    <!--<p> Official SNHU Sam's Corp Army Force Website</p> -->
     </div>
     <header class="header">
         <div class="container">                     
             <div class="logo">
-                <img src="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/ASSETS/Sam's_corps.png" alt="Logo">
+                <!--<img src="" alt="Logo"> -->
                 <span> THE POWERFUL SNHU STUDNT WITH ARMY POWER + SAM'S CORPS</span>
              </div>
+             <!-- This is the navigation for thus website a that has all the other pages links -->
             <nav class="navbar">
                 <ul class="nav-menu">
                     <li><a href="#">HOME</a></li>
@@ -35,16 +36,21 @@
             </nav>
         </div>
     </header>
-<!-- Hero Section -->
+<!-- The background video and it auto play so it will keep on playing over and over -->
 <section class="hero">
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/ASSETS/armyvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
     <div class="hero-content">
         <h1>THE FEW. THE PROUD.</h1>
-        <img src="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/ASSETS/marin1.jpg"alt ="sma's corps">
-        <p>Join Sam's Corps, the official SNHU student army hub. We are more than just a group; we are a powerful community where students unite to support each other and grow. Our hub provides the resources and camaraderie you need to be successful, creating a strong army of future leaders.
+        <p>Join Sam's Corps, the official SNHU student army hub. We are more than just a group; we are a powerful community where students unite to support each other and grow. Our hub provides the resources and camaraderie you need to be successful, creating a strong army of future leaders.</p>
 
-            On campus, Sam's Corps is your central command for a wide range of activities designed to sharpen your skills and build connections. 
-            We host weekly collaborative study sessions in the library, lead tech workshops to master new skills, and organize exciting hackathons to tackle real-world problems. 
-            Beyond academics, we strengthen our bonds through on-campus community service projects and social events, ensuring you have the support and friendship needed to thrive at SNHU. </p>
+        <p>On campus, Sam's Corps is your central command for a wide range of activities designed to sharpen your skills and build connections. We host weekly collaborative study sessions in the library, lead tech workshops to master new skills, and organize exciting hackathons to tackle real-world problems. Beyond academics, we strengthen our bonds through on-campus community service projects and social events, ensuring you have the support and friendship needed to thrive at SNHU. </p>
         <button class="cta-button">LEARN MORE</button>
     </div>
 </section>
@@ -89,7 +95,7 @@
     <div class="container">
         <div class="mission-content">
             <h2>OUR MISSION</h2>
-            <img src="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/ASSETS/army.png" alt="Logo">
+            <img src="/Users/samuelraymond/Library/CloudStorage/OneDrive-SNHU/SNHU Academic Materials/2025 Fall & Spring/Fall Smemseter Classes/2025 A- FALL SEMESTER/FULL STACK DEV/Week 4/Lab-1-HTML-and-CSS-Landing-Page/ASSETS/Marines.webp" alt="Logo">
             <p>Sam's Corps serves as a formidable force-in-readiness, meticulously prepared to respond to academic and community challenges across campus and beyond. Our members are trained to fight and 
                 win in a variety of situations, from collaborative projects and problem-solving initiatives to leading their peers. Just as an expeditionary force is ready to deploy and sustain itself anywhere in the world, Sam's Corps is built on a foundation of versatility and adaptability. 
                 We are a self-sufficient group that can be relied upon to deliver results, ensuring our community remains strong and our members are prepared for any challenge that comes their way.</p>
