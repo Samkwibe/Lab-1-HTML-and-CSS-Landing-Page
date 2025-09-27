@@ -1,695 +1,790 @@
-
-       /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-             line-height: 1.6;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Alert Banner */
-        .alert-banner {
-            background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%);
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 2px 10px rgba(200, 16, 46, 0.5);
-        }
-
-        /* Header Styles */
-        .header {
-            background: rgba(10, 10, 10, 0.9);
-            border-bottom: 2px solid #c8102e;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            height: 60px;
-            width: 60px;
-            background: linear-gradient(135deg, #c8102e 0%, #8a0b1f 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            color: white;
-            box-shadow: 0 0 15px rgba(200, 16, 46, 0.7);
-        }
-
-        .logo span {
-            font-weight: bold;
-            color: #e0e0e0;
-            font-size: 18px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(200, 16, 46, 0.5);
-        }
-
-        /* Navigation Styles */
-        .navbar {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #e0e0e0;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            padding: 8px 15px;
-            border-radius: 5px;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: #9699d1;
-            background: rgba(200, 16, 46, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-menu a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #c8102e;
-            transition: all 0.3s;
-            transform: translateX(-50%);
-        }
-
-        .nav-menu a:hover:after {
-            width: 80%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #e0e0e0;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section with Video Background */
-        .hero {
-            position: relative;
-            height: 80vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(10,10,10,0.7) 0%, rgba(26,26,46,0.8) 100%);
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            padding: 40px;
-            background: rgba(10, 10, 10, 0.7);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(200, 16, 46, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: linear-gradient(45deg, #c8102e, #e74c3c, #c8102e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(200, 16, 46, 0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            color: #cccccc;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #c8102e 0%, #8a0b1f 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            border-radius: 5px;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(200, 16, 46, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover:before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(200, 16, 46, 0.6);
-        }
-
-        /* News Section */
-        .news-section {
-            padding: 80px 0;
-            background: rgba(10, 10, 10, 0.8);
-        }
-
-        .news-section h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            position: relative;
-            color: #e0e0e0;
-        }
-
-        .news-section h2:after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%);
-            margin: 15px auto;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .news-card {
-            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(200, 16, 46, 0.2);
-        }
-
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .news-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .news-card:nth-child(1) .news-image {
-            background: linear-gradient(45deg, #8a0b1f, #c8102e, #e74c3c);
-        }
-
-        .news-card:nth-child(2) .news-image {
-            background: linear-gradient(45deg, #16213e, #1a1a2e, #0f3460);
-        }
-
-        .news-card:nth-child(3) .news-image {
-            background: linear-gradient(45deg, #1e5128, #4e9f3d, #d8e9a8);
-        }
-
-        .news-content {
-            padding: 25px;
-        }
-
-        .news-content h3 {
-            margin-bottom: 15px;
-            color: #c8102e;
-            font-size: 1.4rem;
-        }
-
-        .news-content p {
-            margin-bottom: 20px;
-            color: #b0b0b0;
-            line-height: 1.6;
-        }
-
-        .news-content a {
-            color: #c8102e;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .news-content a:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #c8102e;
-            transition: width 0.3s;
-        }
-
-        .news-content a:hover:after {
-            width: 100%;
-        }
-
-        /* Mission Section */
-        .mission-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 50%, #0a0a0a 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mission-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-
-        .mission-section h2 {
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            position: relative;
-        }
-
-        .mission-section h2:after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: white;
-            margin: 15px auto;
-        }
-
-        .mission-section p {
-            max-width: 900px;
-            margin: 0 auto 50px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #cccccc;
-        }
-
-        .mission-stats {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            padding: 20px;
-            background: rgba(10, 10, 10, 0.5);
-            border-radius: 10px;
-            min-width: 150px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(200, 16, 46, 0.3);
-        }
-
-        .stat h3 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #c8102e, #e74c3c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat p {
-            font-size: 1.1rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #b0b0b0;
-        }
-
-        /* Search Section */
-        .search-section {
-            padding: 60px 0;
-            background: rgba(10, 10, 10, 0.8);
-            text-align: center;
-        }
-
-        .search-section h2 {
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            position: relative;
-            color: #e0e0e0;
-        }
-
-        .search-section h2:after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%);
-            margin: 15px auto;
-        }
-
-        .search-bar {
-            display: flex;
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(200, 16, 46, 0.3);
-        }
-
-        .search-bar input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            font-size: 1rem;
-            outline: none;
-            background: rgba(26, 26, 46, 0.8);
-            color: #e0e0e0;
-        }
-
-        .search-bar input::placeholder {
-            color: #999;
-        }
-
-        .search-bar button {
-            background: linear-gradient(45deg, #c8102e 0%, #8a0b1f 100%);
-            color: white;
-            border: none;
-            padding: 0 25px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .search-bar button:hover {
-            background: linear-gradient(45deg, #8a0b1f 0%, #c8102e 100%);
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: white;
-            padding: 60px 0 20px;
-            border-top: 2px solid #c8102e;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 20px;
-            color: #c8102e;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-section h4:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: #c8102e;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section a {
-            color: #b0b0b0;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .footer-section a:hover {
-            color: #c8102e;
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 10px;
-        }
-
-        /* Responsive Design */
-        @media only screen and (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .mission-stats {
-                gap: 40px;
-            }
-            
-            .stat h3 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 120px;
-                flex-direction: column;
-                background: rgba(10, 10, 10, 0.95);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-                gap: 0;
-                backdrop-filter: blur(10px);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-menu li {
-                margin: 10px 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            .hero {
-                height: auto;
-                padding: 80px 0;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .mission-stats {
-                gap: 30px;
-            }
-
-            .stat h3 {
-                font-size: 2rem;
-            }
-            
-            .search-bar {
-                flex-direction: column;
-                border-radius: 8px;
-            }
-            
-            .search-bar input {
-                border-bottom: 1px solid #333;
-            }
-            
-            .search-bar button {
-                padding: 15px;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            .logo {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-            
-            .logo-img {
-                height: 50px;
-                width: 50px;
-                font-size: 20px;
-            }
-            
-            .logo span {
-                font-size: 16px;
-            }
-            
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .news-section h2, .mission-section h2, .search-section h2 {
-                font-size: 2rem;
-            }
-            
-            .mission-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        /* Simple JavaScript-free hamburger menu functionality */
-        #menu-toggle {
-            display: none;
-        }
-
-        #menu-toggle:checked ~ .nav-menu {
-            left: 0;
-        }
-   
+/* Styles for the main body of the page. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets the default font for the page, with fallback options. */
+     line-height: 1.6; /* Sets the space between lines of text to 1.6 times the font size for readability. */
+    color: #e0e0e0; /* Sets the default text color to a light gray. */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); /* Creates a dark gradient background that transitions between three colors. */
+    min-height: 100vh; /* Ensures the body takes up at least the full height of the viewport (the browser window). */
+}
+
+/* A reusable container class to center content and limit its width. */
+.container {
+    max-width: 1200px; /* Sets the maximum width of the container to 1200 pixels. */
+    margin: 0 auto; /* Centers the container horizontally on the page. */
+    padding: 0 20px; /* Adds 20 pixels of space on the left and right inside the container. */
+}
+
+/* Alert Banner */
+/* Styles for the alert banner at the top of the page. */
+.alert-banner {
+    background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient background for the banner. */
+    color: white; /* Sets the text color to white. */
+    text-align: center; /* Centers the text inside the banner. */
+    padding: 10px 0; /* Adds 10 pixels of space above and below the text. */
+    font-size: 14px; /* Sets the font size of the banner text. */
+    font-weight: bold; /* Makes the banner text bold. */
+    box-shadow: 0 2px 10px rgba(200, 16, 46, 0.5); /* Adds a red shadow effect below the banner. */
+}
+
+/* Header Styles */
+/* Styles for the main header section. */
+.header {
+    background: rgba(10, 10, 10, 0.9); /* Sets a semi-transparent dark background. */
+    border-bottom: 2px solid #c8102e; /* Adds a 2-pixel thick solid red line at the bottom. */
+    padding: 15px 0; /* Adds 15 pixels of space at the top and bottom inside the header. */
+    position: sticky; /* Makes the header "stick" to the top of the screen when scrolling. */
+    top: 0; /* Specifies that the header should stick at the very top of the screen. */
+    z-index: 1000; /* Ensures the header stays on top of other content on the page. */
+    backdrop-filter: blur(10px); /* Blurs the content that is scrolled behind the semi-transparent header. */
+}
+
+/* Targets the .container element specifically inside the .header. */
+.header .container {
+    display: flex; /* Arranges items (logo, navbar) in a row. */
+    justify-content: space-between; /* Pushes the logo and navbar to opposite ends of the container. */
+    align-items: center; /* Aligns the logo and navbar vertically in the center. */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens if needed. */
+}
+
+/* Styles for the logo container. */
+.logo {
+    display: flex; /* Arranges the logo image and text in a row. */
+    align-items: center; /* Aligns the logo image and text vertically in the center. */
+    gap: 15px; /* Adds 15 pixels of space between the logo image and text. */
+}
+
+/* Styles for the logo "image" (which is actually a styled div). */
+.logo-img {
+    height: 60px; /* Sets the height of the logo circle. */
+    width: 60px; /* Sets the width of the logo circle. */
+    background: linear-gradient(135deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient background for the logo circle. */
+    border-radius: 50%; /* Makes the square div a perfect circle. */
+    display: flex; /* Enables flexbox for centering content inside. */
+    align-items: center; /* Vertically centers content within the circle. */
+    justify-content: center; /* Horizontally centers content within the circle. */
+    font-weight: bold; /* Makes the text inside the circle bold. */
+    font-size: 24px; /* Sets the font size of the text inside the circle. */
+    color: white; /* Sets the text color to white. */
+    box-shadow: 0 0 15px rgba(200, 16, 46, 0.7); /* Adds a glowing red shadow effect around the circle. */
+}
+
+/* Styles for the text part of the logo. */
+.logo span {
+    font-weight: bold; /* Makes the logo text bold. */
+    color: #e0e0e0; /* Sets the text color to light gray. */
+    font-size: 18px; /* Sets the font size of the logo text. */
+    text-transform: uppercase; /* Makes the logo text all uppercase. */
+    text-shadow: 0 0 10px rgba(200, 16, 46, 0.5); /* Adds a subtle red glow effect to the text. */
+}
+
+/* Navigation Styles */
+/* Styles for the navigation bar container. */
+.navbar {
+    display: flex; /* Enables flexbox for alignment. */
+    align-items: center; /* Vertically centers the items inside the navbar. */
+}
+
+/* Styles for the navigation menu list. */
+.nav-menu {
+    display: flex; /* Arranges the list items (links) in a row. */
+    list-style: none; /* Removes the default bullet points from the list. */
+    gap: 25px; /* Adds 25 pixels of space between each menu link. */
+}
+
+/* Styles for the individual links in the navigation menu. */
+.nav-menu a {
+    text-decoration: none; /* Removes the underline from links. */
+    color: #e0e0e0; /* Sets the link text color to light gray. */
+    font-weight: bold; /* Makes the link text bold. */
+    font-size: 14px; /* Sets the font size for the link text. */
+    text-transform: uppercase; /* Makes the link text all uppercase. */
+    transition: all 0.3s; /* Creates a smooth 0.3-second animation for all property changes. */
+    padding: 8px 15px; /* Adds space inside the link for a larger clickable area. */
+    border-radius: 5px; /* Adds slightly rounded corners to the link's background area. */
+    position: relative; /* Required for positioning the pseudo-element (:after) correctly. */
+}
+
+/* Styles for the navigation links when the mouse is hovering over them. */
+.nav-menu a:hover {
+    color: #9699d1; /* Changes the text color on hover. */
+    background: rgba(200, 16, 46, 0.1); /* Adds a very faint, transparent red background on hover. */
+    transform: translateY(-2px); /* Lifts the link up by 2 pixels on hover. */
+}
+
+/* Creates a pseudo-element that will be used for the underline effect. */
+.nav-menu a:after {
+    content: ''; /* Required for pseudo-elements to appear. */
+    position: absolute; /* Positions the underline relative to the link (its parent). */
+    bottom: 0; /* Places the underline at the very bottom of the link. */
+    left: 50%; /* Starts the underline in the horizontal center of the link. */
+    width: 0; /* Makes the underline invisible by default (zero width). */
+    height: 2px; /* Sets the thickness of the underline. */
+    background: #c8102e; /* Sets the color of the underline to red. */
+    transition: all 0.3s; /* Animates the underline's properties smoothly. */
+    transform: translateX(-50%); /* Re-centers the underline after it has been positioned at 50% left. */
+}
+
+/* Styles for the underline pseudo-element when hovering over the link. */
+.nav-menu a:hover:after {
+    width: 80%; /* Expands the underline to 80% of the link's width on hover. */
+}
+
+/* Styles for the hamburger menu icon (hidden by default on large screens). */
+.hamburger {
+    display: none; /* Hides the hamburger icon. */
+    flex-direction: column; /* Stacks the bars of the icon vertically. */
+    cursor: pointer; /* Changes the mouse cursor to a pointer (hand) on hover. */
+    padding: 5px; /* Adds a small amount of space around the icon. */
+}
+
+/* Styles for the individual bars of the hamburger icon. */
+.bar {
+    width: 25px; /* Sets the width of each bar. */
+    height: 3px; /* Sets the height of each bar. */
+    background-color: #e0e0e0; /* Sets the color of the bars to light gray. */
+    margin: 3px 0; /* Adds 3 pixels of space above and below each bar. */
+    transition: 0.3s; /* Animates changes to the bars (for the 'X' transformation). */
+}
+
+/* Hero Section with Video Background */
+/* Styles for the main introductory "hero" section. */
+.hero {
+    position: relative; /* Establishes a positioning context for its children. */
+    height: 80vh; /* Sets the height to 80% of the viewport height. */
+    overflow: hidden; /* Hides any content that spills outside the section's boundaries. */
+    display: flex; /* Enables flexbox for centering content. */
+    align-items: center; /* Vertically centers the content. */
+    justify-content: center; /* Horizontally centers the content. */
+    text-align: center; /* Centers the text within the content box. */
+    color: white; /* Sets the default text color to white. */
+}
+
+/* Styles for the video background container. */
+.video-background {
+    position: absolute; /* Positions the video relative to the .hero section. */
+    top: 0; /* Positions it at the top edge. */
+    left: 0; /* Positions it at the left edge. */
+    width: 100%; /* Makes it span the full width of the .hero section. */
+    height: 100%; /* Makes it span the full height of the .hero section. */
+    z-index: -2; /* Places it behind all other content in the hero section. */
+}
+
+/* Styles for the actual video element. */
+.video-background video {
+    width: 100%; /* Ensures the video fills its container horizontally. */
+    height: 100%; /* Ensures the video fills its container vertically. */
+    object-fit: cover; /* Scales the video to cover the entire container, cropping if necessary. */
+    opacity: 0.4; /* Makes the video partially transparent. */
+}
+
+/* Styles for the dark overlay on top of the video. */
+.video-overlay {
+    position: absolute; /* Positions the overlay relative to the .hero section. */
+    top: 0; /* Positions it at the top edge. */
+    left: 0; /* Positions it at the left edge. */
+    width: 100%; /* Makes it span the full width. */
+    height: 100%; /* Makes it span the full height. */
+    background: radial-gradient(circle, rgba(10,10,10,0.7) 0%, rgba(26,26,46,0.8) 100%); /* Creates a dark, circular gradient overlay. */
+    z-index: -1; /* Places it on top of the video but behind the text content. */
+}
+
+/* Styles for the content box within the hero section. */
+.hero-content {
+    max-width: 900px; /* Limits the maximum width of the content box. */
+    padding: 40px; /* Adds 40 pixels of space inside the content box. */
+    background: rgba(10, 10, 10, 0.7); /* Gives the box a semi-transparent dark background. */
+    border-radius: 15px; /* Adds rounded corners to the box. */
+    backdrop-filter: blur(10px); /* Blurs the video background that is visible through the box. */
+    border: 1px solid rgba(200, 16, 46, 0.3); /* Adds a subtle, transparent red border. */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds a dark shadow effect to lift the box off the page. */
+}
+
+/* Styles for the main heading in the hero section. */
+.hero-content h1 {
+    font-size: 3.5rem; /* Sets a large font size for the heading. */
+    margin-bottom: 20px; /* Adds 20 pixels of space below the heading. */
+    text-transform: uppercase; /* Makes the heading text all uppercase. */
+    letter-spacing: 3px; /* Increases the space between letters. */
+    background: linear-gradient(45deg, #c8102e, #e74c3c, #c8102e); /* Creates a red gradient for the text color. */
+    -webkit-background-clip: text; /* Clips the background to the shape of the text. */
+    -webkit-text-fill-color: transparent; /* Makes the text itself transparent, revealing the gradient background. */
+    text-shadow: 0 0 20px rgba(200, 16, 46, 0.5); /* Adds a glowing red shadow to the text. */
+}
+
+/* Styles for the paragraph text in the hero section. */
+.hero-content p {
+    font-size: 1.2rem; /* Sets the font size for the paragraph. */
+    margin-bottom: 30px; /* Adds 30 pixels of space below the paragraph. */
+    line-height: 1.8; /* Increases the space between lines of text. */
+    color: #cccccc; /* Sets the text color to a light gray. */
+}
+
+/* Styles for the Call To Action (CTA) button. */
+.cta-button {
+    background: linear-gradient(45deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient background for the button. */
+    color: white; /* Sets the button text color to white. */
+    border: none; /* Removes the default border from the button. */
+    padding: 15px 30px; /* Adds space inside the button. */
+    font-size: 1.2rem; /* Sets the font size for the button text. */
+    font-weight: bold; /* Makes the button text bold. */
+    cursor: pointer; /* Shows a pointer (hand) cursor on hover. */
+    transition: all 0.3s; /* Animates all property changes over 0.3 seconds. */
+    text-transform: uppercase; /* Makes the button text all uppercase. */
+    border-radius: 5px; /* Adds rounded corners to the button. */
+    letter-spacing: 1px; /* Increases the space between letters in the button text. */
+    box-shadow: 0 5px 15px rgba(200, 16, 46, 0.4); /* Adds a red shadow effect to the button. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+    overflow: hidden; /* Hides the pseudo-element when it's outside the button's boundaries. */
+}
+
+/* Creates a pseudo-element for a shiny hover effect on the button. */
+.cta-button:before {
+    content: ''; /* Required for the pseudo-element to appear. */
+    position: absolute; /* Positions it relative to the button. */
+    top: 0; /* Aligns it to the top of the button. */
+    left: -100%; /* Starts it completely off-screen to the left. */
+    width: 100%; /* Makes it the same width as the button. */
+    height: 100%; /* Makes it the same height as the button. */
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); /* Creates a transparent-to-white-to-transparent gradient for the shine. */
+    transition: 0.5s; /* Sets the animation duration for the shine effect. */
+}
+
+/* Moves the shiny pseudo-element across the button on hover. */
+.cta-button:hover:before {
+    left: 100%; /* Moves the shine effect to the right, off-screen again. */
+}
+
+/* Styles for the CTA button when the mouse is hovering over it. */
+.cta-button:hover {
+    transform: translateY(-3px); /* Lifts the button up by 3 pixels on hover. */
+    box-shadow: 0 8px 20px rgba(200, 16, 46, 0.6); /* Makes the shadow larger and more pronounced on hover. */
+}
+
+/* News Section */
+/* Styles for the news section. */
+.news-section {
+    padding: 80px 0; /* Adds 80 pixels of space at the top and bottom inside the section. */
+    background: rgba(10, 10, 10, 0.8); /* Sets a semi-transparent dark background. */
+}
+
+/* Styles for the main heading of the news section. */
+.news-section h2 {
+    text-align: center; /* Centers the heading text. */
+    margin-bottom: 50px; /* Adds 50 pixels of space below the heading. */
+    font-size: 2.5rem; /* Sets the font size for the heading. */
+    text-transform: uppercase; /* Makes the heading text all uppercase. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+    color: #e0e0e0; /* Sets the heading text color to light gray. */
+}
+
+/* Creates a decorative underline for the news section heading. */
+.news-section h2:after {
+    content: ''; /* Required for the pseudo-element to appear. */
+    display: block; /* Makes the pseudo-element a block-level element. */
+    width: 100px; /* Sets the width of the underline. */
+    height: 3px; /* Sets the thickness of the underline. */
+    background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient for the underline. */
+    margin: 15px auto; /* Adds 15 pixels of space above the line and centers it horizontally. */
+}
+
+/* Styles for the grid container that holds the news cards. */
+.news-grid {
+    display: grid; /* Enables CSS Grid layout. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid with columns that are at least 300px wide. */
+    gap: 30px; /* Adds 30 pixels of space between the grid items (news cards). */
+}
+
+/* Styles for each individual news card. */
+.news-card {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%); /* Creates a dark blue gradient background for the card. */
+    border-radius: 10px; /* Adds rounded corners to the card. */
+    overflow: hidden; /* Hides any content (like the image) that spills outside the rounded corners. */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds a shadow effect to the card. */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animates the transform and box-shadow properties. */
+    border: 1px solid rgba(200, 16, 46, 0.2); /* Adds a subtle, transparent red border. */
+}
+
+/* Styles for the news card when the mouse is hovering over it. */
+.news-card:hover {
+    transform: translateY(-10px); /* Lifts the card up by 10 pixels on hover. */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Makes the shadow more pronounced on hover. */
+}
+
+/* Styles for the image area of the news card. */
+.news-image {
+    height: 200px; /* Sets a fixed height for the image area. */
+    background-size: cover; /* Ensures the background image covers the entire area. */
+    background-position: center; /* Centers the background image. */
+}
+
+/* Sets a specific gradient background for the first news card's image area. */
+.news-card:nth-child(1) .news-image {
+    background: linear-gradient(45deg, #8a0b1f, #c8102e, #e74c3c);
+}
+
+/* Sets a specific gradient background for the second news card's image area. */
+.news-card:nth-child(2) .news-image {
+    background: linear-gradient(45deg, #16213e, #1a1a2e, #0f3460);
+}
+
+/* Sets a specific gradient background for the third news card's image area. */
+.news-card:nth-child(3) .news-image {
+    background: linear-gradient(45deg, #1e5128, #4e9f3d, #d8e9a8);
+}
+
+/* Styles for the content area within the news card. */
+.news-content {
+    padding: 25px; /* Adds 25 pixels of space inside the content area. */
+}
+
+/* Styles for the heading within the news card. */
+.news-content h3 {
+    margin-bottom: 15px; /* Adds 15 pixels of space below the heading. */
+    color: #c8102e; /* Sets the heading color to red. */
+    font-size: 1.4rem; /* Sets the font size for the heading. */
+}
+
+/* Styles for the paragraph text within the news card. */
+.news-content p {
+    margin-bottom: 20px; /* Adds 20 pixels of space below the paragraph. */
+    color: #b0b0b0; /* Sets the text color to a light gray. */
+    line-height: 1.6; /* Increases the space between lines of text. */
+}
+
+/* Styles for the "Read More" link in the news card. */
+.news-content a {
+    color: #c8102e; /* Sets the link color to red. */
+    text-decoration: none; /* Removes the underline from the link. */
+    font-weight: bold; /* Makes the link text bold. */
+    display: inline-block; /* Allows properties like transition and transform to work correctly. */
+    transition: color 0.3s; /* Animates the color change of the link. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+}
+
+/* Creates a decorative underline for the "Read More" link. */
+.news-content a:after {
+    content: ''; /* Required for the pseudo-element to appear. */
+    position: absolute; /* Positions the underline relative to the link. */
+    bottom: -2px; /* Places the underline 2 pixels below the text. */
+    left: 0; /* Starts the underline at the left edge of the link. */
+    width: 0; /* Makes the underline invisible by default. */
+    height: 2px; /* Sets the thickness of the underline. */
+    background: #c8102e; /* Sets the color of the underline to red. */
+    transition: width 0.3s; /* Animates the width of the underline. */
+}
+
+/* Expands the underline when hovering over the "Read More" link. */
+.news-content a:hover:after {
+    width: 100%; /* Makes the underline span the full width of the link on hover. */
+}
+
+/* Mission Section */
+/* Styles for the mission section. */
+.mission-section {
+    padding: 80px 0; /* Adds 80 pixels of space at the top and bottom inside the section. */
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 50%, #0a0a0a 100%); /* Creates a dark blue/black gradient background. */
+    color: white; /* Sets the default text color to white. */
+    text-align: center; /* Centers all text within the section. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+    overflow: hidden; /* Hides any part of the background pattern that spills outside. */
+}
+
+/* Creates a decorative grid pattern overlay for the mission section. */
+.mission-section:before {
+    content: ''; /* Required for the pseudo-element to appear. */
+    position: absolute; /* Positions the pattern relative to the section. */
+    top: 0; /* Aligns it to the top. */
+    left: 0; /* Aligns it to the left. */
+    width: 100%; /* Makes it span the full width. */
+    height: 100%; /* Makes it span the full height. */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); /* Sets an SVG grid pattern as a repeating background. */
+}
+
+/* Styles for the main heading of the mission section. */
+.mission-section h2 {
+    margin-bottom: 30px; /* Adds 30 pixels of space below the heading. */
+    font-size: 2.5rem; /* Sets the font size for the heading. */
+    text-transform: uppercase; /* Makes the heading text all uppercase. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+}
+
+/* Creates a decorative underline for the mission section heading. */
+.mission-section h2:after {
+    content: ''; /* Required for the pseudo-element to appear. */
+    display: block; /* Makes the pseudo-element a block-level element. */
+    width: 100px; /* Sets the width of the underline. */
+    height: 3px; /* Sets the thickness of the underline. */
+    background: white; /* Sets the color of the underline to white. */
+    margin: 15px auto; /* Adds 15 pixels of space above the line and centers it. */
+}
+
+/* Styles for the paragraph text in the mission section. */
+.mission-section p {
+    max-width: 900px; /* Limits the maximum width of the paragraph. */
+    margin: 0 auto 50px; /* Centers the paragraph and adds 50 pixels of space below it. */
+    font-size: 1.2rem; /* Sets the font size for the paragraph. */
+    line-height: 1.8; /* Increases the space between lines of text. */
+    color: #cccccc; /* Sets the text color to a light gray. */
+}
+
+/* Styles for the container holding the statistics. */
+.mission-stats {
+    display: flex; /* Arranges the stat boxes in a row. */
+    justify-content: center; /* Centers the stat boxes horizontally. */
+    gap: 60px; /* Adds 60 pixels of space between the stat boxes. */
+    flex-wrap: wrap; /* Allows the stat boxes to wrap to the next line on smaller screens. */
+}
+
+/* Styles for each individual statistic box. */
+.stat {
+    padding: 20px; /* Adds 20 pixels of space inside the box. */
+    background: rgba(10, 10, 10, 0.5); /* Sets a semi-transparent dark background. */
+    border-radius: 10px; /* Adds rounded corners to the box. */
+    min-width: 150px; /* Sets a minimum width for the box. */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds a shadow effect to the box. */
+    border: 1px solid rgba(200, 16, 46, 0.3); /* Adds a subtle, transparent red border. */
+}
+
+/* Styles for the number (heading) within the stat box. */
+.stat h3 {
+    font-size: 3rem; /* Sets a large font size for the number. */
+    margin-bottom: 10px; /* Adds 10 pixels of space below the number. */
+    font-weight: bold; /* Makes the number bold. */
+    background: linear-gradient(45deg, #c8102e, #e74c3c); /* Creates a red gradient for the number's color. */
+    -webkit-background-clip: text; /* Clips the background to the shape of the text. */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent, revealing the gradient. */
+}
+
+/* Styles for the label (paragraph) within the stat box. */
+.stat p {
+    font-size: 1.1rem; /* Sets the font size for the label. */
+    margin: 0; /* Removes any default margin from the paragraph. */
+    text-transform: uppercase; /* Makes the label text all uppercase. */
+    letter-spacing: 1px; /* Increases the space between letters. */
+    color: #b0b0b0; /* Sets the text color to a light gray. */
+}
+
+/* Search Section */
+/* Styles for the search section. */
+.search-section {
+    padding: 60px 0; /* Adds 60 pixels of space at the top and bottom inside the section. */
+    background: rgba(10, 10, 10, 0.8); /* Sets a semi-transparent dark background. */
+    text-align: center; /* Centers all text within the section. */
+}
+
+/* Styles for the main heading of the search section. */
+.search-section h2 {
+    margin-bottom: 30px; /* Adds 30 pixels of space below the heading. */
+    font-size: 2.2rem; /* Sets the font size for the heading. */
+    text-transform: uppercase; /* Makes the heading text all uppercase. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+    color: #e0e0e0; /* Sets the text color to light gray. */
+}
+
+/* Creates a decorative underline for the search section heading. */
+.search-section h2:after {
+    content: ''; /* Required for the pseudo-element to appear. */
+    display: block; /* Makes the pseudo-element a block-level element. */
+    width: 100px; /* Sets the width of the underline. */
+    height: 3px; /* Sets the thickness of the underline. */
+    background: linear-gradient(90deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient for the underline. */
+    margin: 15px auto; /* Adds 15 pixels of space above the line and centers it. */
+}
+
+/* Styles for the search bar container. */
+.search-bar {
+    display: flex; /* Arranges the input field and button in a row. */
+    max-width: 600px; /* Limits the maximum width of the search bar. */
+    margin: 0 auto; /* Centers the search bar horizontally. */
+    border-radius: 30px; /* Creates a pill-shaped container. */
+    overflow: hidden; /* Hides any content that spills outside the rounded corners. */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds a shadow effect to the search bar. */
+    border: 1px solid rgba(200, 16, 46, 0.3); /* Adds a subtle, transparent red border. */
+}
+
+/* Styles for the text input field. */
+.search-bar input {
+    flex: 1; /* Allows the input field to grow and take up available space. */
+    padding: 15px 20px; /* Adds space inside the input field. */
+    border: none; /* Removes the default border. */
+    font-size: 1rem; /* Sets the font size for the input text. */
+    outline: none; /* Removes the focus outline that appears when clicked. */
+    background: rgba(26, 26, 46, 0.8); /* Sets a semi-transparent dark blue background. */
+    color: #e0e0e0; /* Sets the text color to light gray. */
+}
+
+/* Styles for the placeholder text in the input field. */
+.search-bar input::placeholder {
+    color: #999; /* Sets the color of the placeholder text to a medium gray. */
+}
+
+/* Styles for the search button. */
+.search-bar button {
+    background: linear-gradient(45deg, #c8102e 0%, #8a0b1f 100%); /* Creates a red gradient background for the button. */
+    color: white; /* Sets the icon color to white. */
+    border: none; /* Removes the default border. */
+    padding: 0 25px; /* Adds horizontal space for the icon. */
+    cursor: pointer; /* Shows a pointer (hand) cursor on hover. */
+    transition: background 0.3s; /* Animates the background change on hover. */
+    font-size: 1.2rem; /* Sets the size of the icon. */
+}
+
+/* Styles for the search button when the mouse is hovering over it. */
+.search-bar button:hover {
+    background: linear-gradient(45deg, #8a0b1f 0%, #c8102e 100%); /* Reverses the gradient on hover for a subtle effect. */
+}
+
+/* Footer */
+/* Styles for the footer section. */
+.footer {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); /* Creates a dark gradient background for the footer. */
+    color: white; /* Sets the default text color to white. */
+    padding: 60px 0 20px; /* Adds 60px of space at the top and 20px at the bottom inside the footer. */
+    border-top: 2px solid #c8102e; /* Adds a 2-pixel thick solid red line at the top of the footer. */
+}
+
+/* Styles for the main content area of the footer. */
+.footer-content {
+    display: grid; /* Enables CSS Grid layout. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates a responsive grid of columns. */
+    gap: 40px; /* Adds 40 pixels of space between the footer columns. */
+    margin-bottom: 40px; /* Adds 40 pixels of space below the grid of links. */
+}
+
+/* Styles for the heading of each footer column. */
+.footer-section h4 {
+    margin-bottom: 20px; /* Adds 20 pixels of space below the heading. */
+    color: #c8102e; /* Sets the heading color to red. */
+    font-size: 1.2rem; /* Sets the font size for the heading. */
+    text-transform: uppercase; /* Makes the heading text all uppercase. */
+    position: relative; /* Required for positioning the pseudo-element correctly. */
+    padding-bottom: 10px; /* Adds space below the text for the underline. */
+}
+
+/* Creates a decorative underline for the footer column headings. */
+.footer-section h4:after {
+    content: ''; /* Required for the pseudo-element to appear. */
+    position: absolute; /* Positions the underline relative to the heading. */
+    left: 0; /* Aligns the underline to the left edge of the heading. */
+    bottom: 0; /* Places the underline at the bottom of the heading's padding area. */
+    width: 40px; /* Sets the width of the underline. */
+    height: 2px; /* Sets the thickness of the underline. */
+    background: #c8102e; /* Sets the color of the underline to red. */
+}
+
+/* Styles for the list of links in the footer. */
+.footer-section ul {
+    list-style: none; /* Removes the default bullet points. */
+}
+
+/* Styles for each list item in the footer. */
+.footer-section ul li {
+    margin-bottom: 12px; /* Adds 12 pixels of space below each link. */
+}
+
+/* Styles for the individual links in the footer. */
+.footer-section a {
+    color: #b0b0b0; /* Sets the link color to a light gray. */
+    text-decoration: none; /* Removes the underline from the links. */
+    transition: color 0.3s; /* Animates the color change of the link. */
+    font-size: 0.95rem; /* Sets a slightly smaller font size for the footer links. */
+}
+
+/* Styles for the footer links when the mouse is hovering over them. */
+.footer-section a:hover {
+    color: #c8102e; /* Changes the link color to red on hover. */
+    padding-left: 5px; /* Moves the text 5 pixels to the right on hover for a subtle effect. */
+}
+
+/* Styles for the bottom part of the footer (copyright info). */
+.footer-bottom {
+    text-align: center; /* Centers the text. */
+    padding-top: 30px; /* Adds 30 pixels of space above the text. */
+    border-top: 1px solid #333; /* Adds a 1-pixel thick dark gray line above the text. */
+    color: #999; /* Sets the text color to a medium gray. */
+    font-size: 0.9rem; /* Sets a small font size for the copyright text. */
+}
+
+/* Styles for the paragraphs in the footer bottom. */
+.footer-bottom p {
+    margin-bottom: 10px; /* Adds 10 pixels of space below each paragraph. */
+}
+
+/* Responsive Design */
+/* This is a media query. The styles inside will only apply when the screen width is 992 pixels or less. */
+@media only screen and (max-width: 992px) {
+    /* Adjusts the hero heading font size for medium-sized screens. */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    /* Reduces the gap between mission stats on medium-sized screens. */
+    .mission-stats {
+        gap: 40px;
+    }
+    
+    /* Adjusts the font size of the stat numbers for medium-sized screens. */
+    .stat h3 {
+        font-size: 2.5rem;
+    }
+}
+
+/* This media query applies to screens 768 pixels or less (like tablets). */
+@media only screen and (max-width: 768px) {
+    /* Stacks the header items vertically and adds space between them. */
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Styles for the mobile navigation menu. */
+    .nav-menu {
+        position: fixed; /* Fixes the menu's position so it doesn't scroll with the page. */
+        left: -100%; /* Hides the menu off-screen to the left by default. */
+        top: 120px; /* Positions the menu 120 pixels from the top of the screen. */
+        flex-direction: column; /* Stacks the menu items vertically. */
+        background: rgba(10, 10, 10, 0.95); /* Sets a very dark, almost opaque background. */
+        width: 100%; /* Makes the menu span the full width of the screen. */
+        text-align: center; /* Centers the menu text. */
+        transition: 0.3s; /* Animates the menu sliding in and out. */
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow. */
+        padding: 20px 0; /* Adds vertical padding. */
+        gap: 0; /* Removes the horizontal gap from the desktop view. */
+        backdrop-filter: blur(10px); /* Blurs the content behind the menu. */
+    }
+
+    /* This class is added by JavaScript to show the mobile menu. */
+    .nav-menu.active {
+        left: 0; /* Moves the menu onto the screen. */
+    }
+    
+    /* Adds space between the vertical menu items. */
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    /* Shows the hamburger icon on smaller screens. */
+    .hamburger {
+        display: flex;
+    }
+
+    /* The next three rules animate the hamburger icon into an 'X'. */
+    /* This rule makes the middle bar invisible when the menu is active. */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    /* This rule rotates the top bar to form the top half of the 'X'. */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    /* This rule rotates the bottom bar to form the bottom half of the 'X'. */
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Adjusts the hero section height and padding for smaller screens. */
+    .hero {
+        height: auto;
+        padding: 80px 0;
+    }
+    
+    /* Reduces the hero heading font size. */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Reduces the hero paragraph font size. */
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    /* Stacks the news cards into a single column. */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Reduces the gap between mission stats. */
+    .mission-stats {
+        gap: 30px;
+    }
+
+    /* Reduces the font size of the stat numbers. */
+    .stat h3 {
+        font-size: 2rem;
+    }
+    
+    /* Stacks the search bar input and button vertically. */
+    .search-bar {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+    
+    /* Adds a border between the stacked input and button. */
+    .search-bar input {
+        border-bottom: 1px solid #333;
+    }
+    
+    /* Adjusts the search button padding for the vertical layout. */
+    .search-bar button {
+        padding: 15px;
+    }
+}
+
+/* This media query applies to screens 480 pixels or less (like mobile phones). */
+@media only screen and (max-width: 480px) {
+    /* Stacks the logo image and text vertically and centers them. */
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    /* Reduces the size of the logo circle. */
+    .logo-img {
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+    }
+    
+    /* Reduces the font size of the logo text. */
+    .logo span {
+        font-size: 16px;
+    }
+    
+    /* Further reduces the hero heading font size. */
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Further reduces the font size of all section headings. */
+    .news-section h2, .mission-section h2, .search-section h2 {
+        font-size: 2rem;
+    }
+    
+    /* Stacks the mission stats into a single column. */
+    .mission-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Stacks the footer columns into a single column. */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Simple JavaScript-free hamburger menu functionality */
+/* This is a "checkbox hack" for a CSS-only menu. */
+/* Hides the actual checkbox input. */
+#menu-toggle {
+    display: none;
+}
+
+/* When the hidden checkbox is checked (by clicking its label, the hamburger), this rule targets the nav-menu and slides it into view. */
+#menu-toggle:checked ~ .nav-menu {
+    left: 0;
+}
